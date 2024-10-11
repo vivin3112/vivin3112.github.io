@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A website hosted on GitHub Pages">
+    <meta name="author" content="VIVIN">
+    <title>VIVIN's Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+        header {
+            background-color: #808080;
+            color: white;
+            padding: 20px;
+            animation: float 2s infinite;
+        }
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        main {
+            margin: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            background-color: #808080;
+            color: white;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            animation: float 2s infinite;
+        }
+        a {
+            color: #696969;
+            text-decoration: none;
+            font-weight: bold;
+            animation: float 2s infinite;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        img.main-img {
+            max-width: 80%;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 20px;
+            animation: fadeIn 2s forwards;
+        }
+        .hello-world {
+            color: #696969;
+            font-size: 1.5em;
+            margin-top: 20px;
+            animation: float 2s infinite;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+        @keyframes moveSticker1 {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(20vw, -30vh); }
+            50% { transform: translate(50vw, 40vh); }
+            75% { transform: translate(-20vw, 10vh); }
+            100% { transform: translate(0, 0); }
+        }
+        @keyframes moveSticker2 {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(40vw, -20vh); }
+            50% { transform: translate(60vw, 50vh); }
+            75% { transform: translate(-10vw, 30vh); }
+            100% { transform: translate(0, 0); }
+        }
+        @keyframes moveSticker3 {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(-30vw, 25vh); }
+            50% { transform: translate(70vw, -10vh); }
+            75% { transform: translate(10vw, 45vh); }
+            100% { transform: translate(0, 0); }
+        }
+        @keyframes moveSticker4 {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(30vw, 30vh); }
+            50% { transform: translate(-40vw, 15vh); }
+            75% { transform: translate(20vw, -5vh); }
+            100% { transform: translate(0, 0); }
+        }
+        .sticker {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            animation: moveSticker1 10s infinite linear;
+        }
+        .sticker:nth-child(2) {
+            animation: moveSticker2 12s infinite linear;
+        }
+        .sticker:nth-child(3) {
+            animation: moveSticker3 8s infinite linear;
+        }
+        .sticker:nth-child(4) {
+            animation: moveSticker4 14s infinite linear;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to VIVIN's Page</h1>
+</header>
+
+<main>
+    <h2 class="hello-world">HELLO WORLD</h2>
+    <p>I'm VIVIN.</p>
+    <a href="https://youtu.be/dQw4w9WgXcQ?si=-6NFrYDrQT5xltCa" target="_blank">Click here to learn more</a>
+    <img class="sticker" src="https://gallerypng.com/wp-content/uploads/2024/03/anne-lambeck-5VC4thmwMms-unsplash-300x251.png" alt="Sticker 1" style="top: 5%; left: 5%;">
+    <img class="sticker" src="https://gallerypng.com/wp-content/uploads/2024/03/anne-lambeck-5VC4thmwMms-unsplash-300x251.png" alt="Sticker 2" style="top: 20%; left: 40%;">
+    <img class="sticker" src="https://gallerypng.com/wp-content/uploads/2024/03/anne-lambeck-5VC4thmwMms-unsplash-300x251.png" alt="Sticker 3" style="top: 50%; left: 70%;">
+    <img class="sticker" src="https://gallerypng.com/wp-content/uploads/2024/03/anne-lambeck-5VC4thmwMms-unsplash-300x251.png" alt="Sticker 4" style="top: 75%; left: 30%;">
+</main>
+
+<footer>
+    <p>Created by VIVIN - © 2024</p>
+</footer>
+
+</body>
+</html>
