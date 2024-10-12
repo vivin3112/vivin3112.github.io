@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment Section</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .comment-section {
+            margin-top: 30px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 30px auto;
+        }
+        .comment-section textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+        .comment-section button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .comments-list {
+            margin-top: 20px;
+        }
+        .comment {
+            background-color: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<main>
+    <div class="comment-section">
+        <h3>Leave a Comment</h3>
+        <textarea id="commentInput" rows="4" placeholder="Write your comment..."></textarea>
+        <button id="submitComment">Submit</button>
+        <div class="comments-list" id="commentsList"></div>
+    </div>
+</main>
+
+<script>
+// Function to handle comment submission
+document.getElementById('submitComment').addEventListener('click', function() {
+    const commentInput = document.getElementById('commentInput');
+    const commentText = commentInput.value.trim();
+
+    if (commentText) {
+        // Store comment in local storage
+        storeComment(commentText);
+
+        // Clear the input
+        commentInput.value = '';
+
+        // Display the comment immediately
+        displayComments();
+    } else {
+        alert('Please enter a comment before submitting.');
+    }
+});
+
+// Function to store a comment in local storage
+function storeComment(commentText) {
+    const comments = JSON.parse(localStorage.getItem('comments')) || [];
+    comments.push({ text: commentText, timestamp: new Date().toLocaleString() });
+    localStorage.setItem('comments', JSON.stringify(comments));
+}
+
+// Function to display comments on the page
+function displayComments() {
+    const commentsList = document.getElementById('commentsList');
+    commentsList.innerHTML = '';  // Clear the list before re-rendering
+
+    const comments = JSON.parse(localStorage.getItem('comments')) || [];
+
+    // Loop through each comment and create an HTML element for it
+    comments.forEach(comment => {
+        const commentElement = document.createElement('div');
+        commentElement.className = 'comment';
+        commentElement.textContent = `${comment.text} (Posted on: ${comment.timestamp})`;
+
+        // Append the comment to the comments list
+        commentsList.appendChild(commentElement);
+    });
+}
+
+// Display comments on page load
+displayComments();
+
+</script>
+
+</body>
+</html>
