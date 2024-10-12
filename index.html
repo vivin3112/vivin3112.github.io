@@ -14,22 +14,20 @@
             background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
             text-align: center;
             color: #333;
-            overflow: hidden; /* Prevents scrollbars from appearing */
+            overflow-x: hidden;
         }
 
         header {
             background: linear-gradient(90deg, #1f4037, #99f2c8);
             color: white;
             padding: 20px;
-            animation: slideIn 1s forwards; /* Slide-in effect */
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
         header h1 {
-            font-size: 3em;
+            font-size: 2.5em;
             margin: 0;
             letter-spacing: 3px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         main {
@@ -40,61 +38,30 @@
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
             max-width: 900px;
             margin: 50px auto;
-            transform: translateY(100px); /* Start below the viewport */
-            opacity: 0; /* Start invisible */
-            animation: slideIn 1s forwards, fadeIn 1s forwards; /* Slide-in and fade-in effect */
-            animation-delay: 0.5s; /* Delay for slide effect */
+            position: relative;
         }
 
-        main:hover {
-            transform: scale(1.05);
+        .sticker {
+            font-size: 2em; 
+            position: absolute;
+            animation: flyAround 8s infinite ease-in-out, fadeIn 2s forwards;
+            opacity: 0;
+            animation-fill-mode: forwards;
         }
 
-        .hello-world {
-            color: #555;
-            font-size: 2em;
-            margin-bottom: 10px;
-            animation: fadeIn 1.5s forwards; /* Fade in */
-        }
-
-        a {
-            display: inline-block;
-            background-color: #1f4037;
-            color: white;
-            padding: 10px 25px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-        }
-
-        a:hover {
-            background-color: #f12711;
-        }
-
-        footer {
-            background: linear-gradient(90deg, #99f2c8, #1f4037);
-            color: white;
-            padding: 20px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.2);
-            font-size: 0.9em;
-        }
-
-        footer p {
-            margin: 0;
-        }
+        .sticker:nth-child(1) { animation-delay: 0s; top: 10%; left: 10%; }
+        .sticker:nth-child(2) { animation-delay: 1s; top: 20%; left: 40%; }
+        .sticker:nth-child(3) { animation-delay: 2s; top: 30%; left: 70%; }
+        .sticker:nth-child(4) { animation-delay: 3s; top: 50%; left: 30%; }
+        .sticker:nth-child(5) { animation-delay: 4s; top: 5%; left: 80%; }
+        .sticker:nth-child(6) { animation-delay: 5s; top: 60%; left: 50%; }
+        .sticker:nth-child(7) { animation-delay: 6s; top: 40%; left: 20%; }
+        .sticker:nth-child(8) { animation-delay: 7s; top: 15%; left: 60%; }
+        .sticker:nth-child(9) { animation-delay: 8s; top: 75%; left: 10%; }
 
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
-        }
-
-        @keyframes slideIn {
-            from { transform: translateY(-50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
         }
 
         @keyframes flyAround {
@@ -105,45 +72,54 @@
             100% { transform: translate(0, 0); }
         }
 
-        .sticker {
-            width: 60px;
-            height: 60px;
-            position: absolute;
-            animation: flyAround 8s infinite ease-in-out, fadeIn 2s forwards; /* Stickers fly around */
-            opacity: 0; /* Start invisible */
-            animation-fill-mode: forwards; /* Keeps the last keyframe's styles */
+        .comment-section {
+            margin-top: 30px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 30px auto;
         }
 
-        .sticker:nth-child(1) {
-            animation-delay: 0s; /* fadeIn */
-            top: 10%;
-            left: 10%;
+        .comment-section textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
         }
 
-        .sticker:nth-child(2) {
-            animation-delay: 1s; /* fadeIn */
-            top: 20%;
-            left: 40%;
+        .comment-section button {
+            padding: 10px 20px;
+            background-color: #1f4037;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
 
-        .sticker:nth-child(3) {
-            animation-delay: 2s; /* fadeIn */
-            top: 50%;
-            left: 70%;
+        .comment-section button:hover {
+            background-color: #f12711;
         }
 
-        .sticker:nth-child(4) {
-            animation-delay: 3s; /* fadeIn */
-            top: 75%;
-            left: 30%;
+        .comments-list {
+            margin-top: 20px;
+            text-align: left;
         }
 
-        .sticker:nth-child(5) {
-            animation-delay: 4s; /* fadeIn */
-            top: 5%;
-            left: 80%;
+        .comment {
+            background-color: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
         }
 
+        footer {
+            background: linear-gradient(90deg, #99f2c8, #1f4037);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -153,26 +129,58 @@
 </header>
 
 <main>
-    <h2 class="hello-world">HELLO WORLD</h2>
+    <h2>Hello World</h2>
     <p>I'm VIVIN. Nice to meet you all!</p>
-    <a href="https://youtu.be/dQw4w9WgXcQ?si=Id5L-Io63WHaRiyF" target="_blank">Click here to learn more</a>
 
-    <div style="position: relative; padding-bottom: 56.25%; height: 0; margin-top: 20px;">
-        <iframe src="https://www.youtube.com/embed/x-lStpKfqHo" 
-                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
-                frameborder="0" allowfullscreen></iframe>
+    <div class="sticker">🔥</div>
+    <div class="sticker">🔥</div>
+    <div class="sticker">🔥</div>
+    <div class="sticker">🔥</div>
+    <div class="sticker">🔥</div>
+    <div class="sticker">🔥</div>
+    <div class="sticker">🔥</div>
+    <div class="sticker">🔥</div>
+    <div class="sticker">🔥</div>
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin-top: 20px;">
+        <iframe src="https://www.youtube.com/embed/x-lStpKfqHo" frameborder="0" allowfullscreen 
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+        </iframe>
     </div>
 
-    <img class="sticker" src="https://gallerypng.com/wp-content/uploads/2024/03/anne-lambeck-5VC4thmwMms-unsplash-300x251.png" alt="Sticker 1">
-    <img class="sticker" src="https://gallerypng.com/wp-content/uploads/2024/03/anne-lambeck-5VC4thmwMms-unsplash-300x251.png" alt="Sticker 2">
-    <img class="sticker" src="https://gallerypng.com/wp-content/uploads/2024/03/anne-lambeck-5VC4thmwMms-unsplash-300x251.png" alt="Sticker 3">
-    <img class="sticker" src="https://gallerypng.com/wp-content/uploads/2024/03/anne-lambeck-5VC4thmwMms-unsplash-300x251.png" alt="Sticker 4">
-    <img class="sticker" src="https://gallerypng.com/wp-content/uploads/2024/03/anne-lambeck-5VC4thmwMms-unsplash-300x251.png" alt="Sticker 5">
+    <div class="comment-section">
+        <h3>Leave a Comment</h3>
+        <textarea id="commentInput" rows="4" placeholder="Write your comment..."></textarea>
+        <button id="submitComment">Submit</button>
+        <div class="comments-list" id="commentsList"></div>
+    </div>
 </main>
 
 <footer>
-    <p>Created by VIVIN - © 2024</p>
+    <p>Website by VIVIN © 2024</p>
 </footer>
 
+<script>
+    document.getElementById('submitComment').addEventListener('click', function() {
+        const commentInput = document.getElementById('commentInput');
+        const commentText = commentInput.value.trim();
+        if (commentText) {
+            const commentsList = document.getElementById('commentsList');
+
+            // Create a new comment element
+            const comment = document.createElement('div');
+            comment.className = 'comment';
+            comment.textContent = commentText;
+
+            // Append the comment to the comments list
+            commentsList.appendChild(comment);
+
+            // Clear the input
+            commentInput.value = '';
+        } else {
+            alert('Please enter a comment before submitting.');
+        }
+    });
+</script>
 </body>
 </html>
